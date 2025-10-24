@@ -20,9 +20,18 @@ public class BillboardingEffect : MonoBehaviour
 
      void LateUpdate()
     {
-        if (Camera.main)
+        if (!Camera.main)
         {
-            transform.forward = Camera.main.transform.forward;
-        } 
+            return;
+                }
+
+        Vector3 fwd = Camera.main.transform.forward;
+        fwd.y = 0f;
+
+        if (fwd.sqrMagnitude > 0.0001f)
+        {
+            transform.forward = fwd.normalized;
+        }
+
     }
 }

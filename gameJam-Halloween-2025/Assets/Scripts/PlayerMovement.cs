@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded;
 
+    public AudioSource gingerbread; 
 
     // Start is called before the first frame update
     void Start()
@@ -67,24 +68,31 @@ public class PlayerMovement : MonoBehaviour
         {
 
             currentSprite.sprite = playerSprites[0];
+            gingerbread.Play();
         }
 
         if (Input.GetKeyDown("a") || Input.GetKeyDown(KeyCode.LeftArrow))
         {
 
             currentSprite.sprite = playerSprites[1];
+            gingerbread.Play();
+
         }
 
         if (Input.GetKeyDown("s") || Input.GetKeyDown(KeyCode.DownArrow))
         {
 
             currentSprite.sprite = playerSprites[2];
+            gingerbread.Play();
+
         }
 
         if (Input.GetKeyDown("d") || Input.GetKeyDown(KeyCode.RightArrow))
         {
 
             currentSprite.sprite = playerSprites[3];
+            gingerbread.Play();
+
         }
     }
 }

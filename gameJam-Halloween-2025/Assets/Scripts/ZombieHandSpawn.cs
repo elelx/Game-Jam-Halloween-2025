@@ -36,7 +36,7 @@ public class ZombieHandSpawn : MonoBehaviour
     {
         Vector3 frameMove = player.position - lastPosition;
 
-        float distanceMoved = Vector3.Distance(player.position, lastPosition);
+        float distanceMoved = frameMove.magnitude; ;
 
         if (distanceMoved > 0.001f)
         {
@@ -49,49 +49,39 @@ public class ZombieHandSpawn : MonoBehaviour
         {
             idleTimer += Time.deltaTime;
 
-            if(idleTimer >= maxAmoutofIdle && currentHand == null)
+            if (idleTimer >= maxAmoutofIdle && currentHand == null)
             {
-                Vector3 spawnPos = player.position - lastMoveDir * spawnZomDistance;
 
+                Vector3 dirToCam = (Camera.main.transform.position - player.position);
+                dirToCam.y = 0f;
+                dirToCam.Normalize();
 
-                if (zombieHandPrefab)
-                {
-                    Quaternion rot = Quaternion.LookRotation((player.position - spawnPos).normalized, Vector3.up);
+                Vector3 spawnPos = player.position + dirToCam * spawnZomDistance;
 
-                    currentHand = Instantiate(zombieHandPrefab, spawnPos, rot);
+            
+                currentHand = Instantiate(zombieHandPrefab, spawnPos, Quaternion.identity);
 
-                    var sr = currentHand.GetComponent<SpriteRenderer>();
-                    if (sr)
-                    {
-                        Vector3 dirToPlayer = (player.position - spawnPos).normalized;
+                currentHand.transform.position = spawnPos;   // enforce world pos once
 
+                var sr = currentHand.GetComponent<SpriteRenderer>();
+                if (sr) sr.sortingOrder = 100;
 
-                        if (Mathf.Abs(dirToPlayer.x) >= Mathf.Abs(dirToPlayer.z))
-                        {
-                            sr.flipX = dirToPlayer.x < 0f;
-                        }
-                        else
-                        {
-                            // up/down (if you have separate sprites, you could swap here)
-                            // sr.sprite = upSprite / downSprite;
-                        }
-                    }
+                //var anim = currentHand.GetComponent<Animator>();
+                //if (anim)
+                //{
+                //    anim.SetTrigger("ZombieGrab");
+                //}
 
-                    var animation = currentHand.GetComponent<Animator>();
-                    if (animation)
-                    {
-                        animation.SetTrigger("ZombieGrab");
-                    }
+                if (health) {
 
-                    if (health)
-                    {
                         health.ChangeHeart();
-                        Debug.Log("minus a heart Zombie hit me");
-                    }
-
-                    idleTimer = 0f;
                 }
+
+
+                idleTimer = 0f;
             }
+
+
         }
 
         else
