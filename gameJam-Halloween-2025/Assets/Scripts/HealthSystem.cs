@@ -11,7 +11,7 @@ public class HealthSystem : MonoBehaviour
     public Image imgSource;
     private int currentImg = 0;
 
-    public CameraRumble cr;
+    //public CameraRumble cr;
 
     //death pop up u
 
@@ -44,11 +44,11 @@ public class HealthSystem : MonoBehaviour
             Debug.Log("ouch me hit");
         }
 
-        if (cr)
-        {
-            cr.PlayerHit();
+        // if (cr)
+        // {
+        //     cr.PlayerHit();
 
-        }
+        // }
 
         if (currentImg >= heartUI.Length)
         {
