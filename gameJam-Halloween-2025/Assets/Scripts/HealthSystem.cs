@@ -2,30 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class HealthSystem : MonoBehaviour
 {
     public Sprite[] heartUI = new Sprite[2];
     public Image imgSource;
     private int currentImg = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //public CameraRumble cr;
 
     public void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.CompareTag("Enemy"))
+        if (col.gameObject.CompareTag("Maze01Enemy"))
         {
             Destroy(col.gameObject);
             ChangeHeart();
+            //cr.PlayerHit();
         }
     }
 
@@ -37,7 +29,7 @@ public class HealthSystem : MonoBehaviour
             currentImg ++;
         }
 
-        if (heartUI.Length == 2)
+        if (heartUI.Length == 3)
         {
             DieSequence();
         }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Maze01Enemy
+  - 1to2Trigger
   layers:
   - Default
   - TransparentFX
