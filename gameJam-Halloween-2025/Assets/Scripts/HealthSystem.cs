@@ -29,7 +29,7 @@ public class HealthSystem : MonoBehaviour
             currentImg ++;
         }
 
-        if (heartUI.Length == 3)
+        if (heartUI.Length == 4)
         {
             DieSequence();
         }
