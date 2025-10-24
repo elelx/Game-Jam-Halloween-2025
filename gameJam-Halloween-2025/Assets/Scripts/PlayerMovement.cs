@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Sprite[] playerSprites = new Sprite[4];
     private SpriteRenderer currentSprite;
     private Transform tr;
-    public float speed = 50f;
+    public float speed = 11f;
 
     //jump
     public float jumpForce = 5f;
@@ -35,7 +35,10 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = new Vector3(xAxis, 0f, zAxis);
 
-        tr.Translate(move * speed * Time.deltaTime, Space.World);
+        rb.velocity = move.normalized * speed;
+
+
+        //tr.Translate(move * speed * Time.deltaTime, Space.World);
         ChangeSprite();
 
         // if (Input.GetKey(KeyCode.LeftShift))

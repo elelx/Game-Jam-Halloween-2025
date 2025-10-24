@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Maze01Enemy
   - 1to2Trigger
+  - Maze02Enemy
   layers:
   - Default
   - TransparentFX

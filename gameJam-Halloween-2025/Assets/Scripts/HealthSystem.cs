@@ -7,9 +7,23 @@ using Cinemachine;
 public class HealthSystem : MonoBehaviour
 {
     public Sprite[] heartUI = new Sprite[2];
+
     public Image imgSource;
     private int currentImg = 0;
-    //public CameraRumble cr;
+
+    public CameraRumble cr;
+
+    //death pop up u
+
+    public GameObject deathScreen;
+
+
+    void Awake()
+    {
+        if (deathScreen) deathScreen.SetActive(false); 
+    }
+
+
 
     public void OnCollisionEnter(Collision col)
     {
@@ -27,9 +41,16 @@ public class HealthSystem : MonoBehaviour
         {
             imgSource.sprite = heartUI[currentImg];
             currentImg ++;
+            Debug.Log("ouch me hit");
         }
 
-        if (heartUI.Length == 4)
+        if (cr)
+        {
+            cr.PlayerHit();
+
+        }
+
+        if (currentImg >= heartUI.Length)
         {
             DieSequence();
         }
@@ -38,5 +59,10 @@ public class HealthSystem : MonoBehaviour
     private void DieSequence()
     {
         Debug.Log("you died");
+
+        if (deathScreen)
+            deathScreen.SetActive(true);
     }
+
+
 }
