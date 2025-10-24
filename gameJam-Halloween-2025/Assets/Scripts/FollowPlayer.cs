@@ -12,7 +12,7 @@ public class FollowPlayer : MonoBehaviour
     public float speedWalk = 6;
     public float speedRun = 9;
     public float viewAngle = 90;
-    public float viewRadius = 15;
+    private float viewRadius = 15;
     public LayerMask playerMask;
     public LayerMask obstacleMask;
     public float meshResolution = 1f;
