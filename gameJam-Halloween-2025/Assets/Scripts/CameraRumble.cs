@@ -4,55 +4,22 @@ using UnityEngine;
 
 public class CameraRumble : MonoBehaviour
 {
-    public Transform camTransform;
-
-    public float shakeDuration = 0f;
-    public float shakeAmount = 0.7f;
-    public float decreaseFactor = 1.0f;
-
-    private Vector3 originalPos;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public IEnumerator Shake(float duration, float magnitude)
     {
-        camTransform = GetComponent<Transform>();
+        Vector3 originalPos = transform.localPosition;
+        float elapsed = 0.0f;
 
-
-        originalPos = camTransform.localPosition;
-    }
-
-    //void Awake()
-    //{
-        //if (camTransform == null)
-        //{
-            //camTransform = GetComponent(typeof(Transform)) as Transform;
-        //}
-    //}
-
-    //void OnEnable()
-    //{
-    //    originalPos = camTransform.localPosition;
-    //}
-
-    public void Update()
-    {
-        if (shakeDuration > 0)
+        while (elapsed < duration)
         {
-            camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
 
-            shakeDuration -= Time.deltaTime * decreaseFactor;
+            transform.localPosition = new Vector3(x, y, originalPos.z);
+            elapsed += Time.deltaTime;
+
+            yield return null;
         }
-        else
-        {
-            shakeDuration = 0f;
-            camTransform.localPosition = originalPos;
-        }
-    }
 
-    public void PlayerHit()
-    {
-        shakeDuration = 0.2f;
+        transform.localPosition = originalPos;
     }
-
 }

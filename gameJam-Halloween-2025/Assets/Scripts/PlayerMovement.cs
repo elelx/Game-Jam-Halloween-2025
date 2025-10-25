@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -69,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
             currentSprite.sprite = playerSprites[0];
             gingerbread.Play();
+            WalkShake();
         }
 
         if (Input.GetKeyDown("a") || Input.GetKeyDown(KeyCode.LeftArrow))
@@ -76,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
             currentSprite.sprite = playerSprites[1];
             gingerbread.Play();
+            WalkShake();
 
         }
 
@@ -84,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
             currentSprite.sprite = playerSprites[2];
             gingerbread.Play();
+            WalkShake();
 
         }
 
@@ -92,7 +96,13 @@ public class PlayerMovement : MonoBehaviour
 
             currentSprite.sprite = playerSprites[3];
             gingerbread.Play();
+            WalkShake();
 
         }
+    }
+
+    public void WalkShake()
+    {
+        CameraShaker.Instance.ShakeOnce(1f, 2f, .1f, 1f);
     }
 }

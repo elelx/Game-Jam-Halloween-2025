@@ -3,27 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using EZCameraShake;
 
 public class HealthSystem : MonoBehaviour
 {
     public Sprite[] heartUI = new Sprite[2];
-
     public Image imgSource;
     private int currentImg = 0;
 
-    //public CameraRumble cr;
-
-    //death pop up u
-
     public GameObject deathScreen;
-
 
     void Awake()
     {
         if (deathScreen) deathScreen.SetActive(false); 
     }
-
-
 
     public void OnCollisionEnter(Collision col)
     {
@@ -31,7 +24,9 @@ public class HealthSystem : MonoBehaviour
         {
             Destroy(col.gameObject);
             ChangeHeart();
-            //cr.PlayerHit();
+            CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, .5f);
+
+            //CameraShaker.Instance.ShakeOnce(1f, 2f, .1f, 1f);
         }
     }
 
@@ -44,19 +39,12 @@ public class HealthSystem : MonoBehaviour
             Debug.Log("ouch me hit");
         }
 
-        // if (cr)
-        // {
-        //     cr.PlayerHit();
-
-        // }
-
         if (currentImg >= heartUI.Length)
         {
             DieSequence();
         }
     }
-
-    private void DieSequence()
+     private void DieSequence()
     {
         Debug.Log("you died");
 
