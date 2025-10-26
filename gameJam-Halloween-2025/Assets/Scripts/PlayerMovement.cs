@@ -5,6 +5,9 @@ using EZCameraShake;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool IsCrouching { get; private set; }
+
+
     public Sprite[] playerSprites = new Sprite[4];
     private SpriteRenderer currentSprite;
     private Transform tr;
@@ -37,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = new Vector3(xAxis, 0f, zAxis);
 
-        rb.velocity = move.normalized * speed;
+        rb.velocity = new Vector3(move.x * speed, rb.velocity.y, move.z * speed);
 
 
         //tr.Translate(move * speed * Time.deltaTime, Space.World);
@@ -54,12 +57,16 @@ public class PlayerMovement : MonoBehaviour
         // }
 
         //jump -----
+
         isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
+
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+
+        IsCrouching = Input.GetKey(KeyCode.LeftControl);
 
     }
 

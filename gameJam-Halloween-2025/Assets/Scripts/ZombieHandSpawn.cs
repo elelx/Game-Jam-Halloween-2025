@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class ZombieHandSpawn : MonoBehaviour
 {
@@ -66,11 +67,7 @@ public class ZombieHandSpawn : MonoBehaviour
                 var sr = currentHand.GetComponent<SpriteRenderer>();
                 if (sr) sr.sortingOrder = 100;
 
-                //var anim = currentHand.GetComponent<Animator>();
-                //if (anim)
-                //{
-                //    anim.SetTrigger("ZombieGrab");
-                //}
+                CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, .5f);
 
                 if (health) {
 
