@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
+using UnityEngine.Audio;
 
 public class ZombieHandSpawn : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class ZombieHandSpawn : MonoBehaviour
 
     public HealthSystem health;
 
+    public AudioSource enemyAudioSource;
+    public AudioClip[] zombieSounds;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +69,9 @@ public class ZombieHandSpawn : MonoBehaviour
 
                 var sr = currentHand.GetComponent<SpriteRenderer>();
                 if (sr) sr.sortingOrder = 100;
+
+                AudioClip clip = zombieSounds[Random.Range(0, zombieSounds.Length)];
+                enemyAudioSource.PlayOneShot(clip);
 
                 CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, .5f);
 

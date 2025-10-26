@@ -313,6 +313,9 @@ MonoBehaviour:
   animator: {fileID: 6271204342333778083}
   crowTimerMin: 3
   crowTimerMax: 5
+  enemyAudioSource: {fileID: 0}
+  crowMiss: {fileID: 8300000, guid: be45aab261f0f9e4287ed760e0691060, type: 3}
+  crowHit: {fileID: 8300000, guid: ff35b7be6e3684d4b81ffe3620e9978d, type: 3}
 --- !u!1 &7445566619934603990
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,3 +601,6 @@ MonoBehaviour:
   animator: {fileID: 6271204342333778083}
   crowTimerMin: 3
   crowTimerMax: 5
+  enemyAudioSource: {fileID: 0}
+  crowMiss: {fileID: 0}
+  crowHit: {fileID: 0}

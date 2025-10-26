@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public bool IsCrouching { get; private set; }
 
-
     public Sprite[] playerSprites = new Sprite[4];
     private SpriteRenderer currentSprite;
     private Transform tr;

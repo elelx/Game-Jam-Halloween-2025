@@ -52,6 +52,8 @@ public class HealthSystem : MonoBehaviour
 
         if (deathScreen)
             deathScreen.SetActive(true);
+
+        GetComponent<PlayerMovement>().enabled = false; //Turns off player controls on death
     }
 
 

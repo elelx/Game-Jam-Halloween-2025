@@ -17,6 +17,8 @@ public class Swooping : MonoBehaviour
 
     private bool isAttacking = false;
 
+    public AudioSource enemyAudioSource;
+    public AudioClip crowMiss;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +68,7 @@ public class Swooping : MonoBehaviour
         {
             CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, .5f);
 
+            enemyAudioSource.PlayOneShot(crowMiss);
 
             Debug.Log("I HIT HIM MEHEH");
 
