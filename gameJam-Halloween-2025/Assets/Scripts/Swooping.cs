@@ -48,39 +48,45 @@ public class Swooping : MonoBehaviour
 
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 
-        attackTimer = Random.Range(crowTimerMin, crowTimerMax);
+
 
         isAttacking = false;
 
+        animator.SetTrigger("Idle");
+
+        attackTimer = Random.Range(crowTimerMin, crowTimerMax);
+
 
     }
 
 
-    //void OnCollisionEnter(Collision col)
-    //{
-    //    if (col.gameObject.CompareTag("Player"))
-    //    {
-    //        CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, .5f);
-
-
-    //        Debug.Log("I HIT HIM MEHEH");
-
-
-    //        if (health)
-    //        {
-
-    //            health.ChangeHeart();
-    //        }
-    //    }
-    //}
-
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision col)
     {
-        if (other.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player"))
         {
             CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, .5f);
-            if (health) health.ChangeHeart();
+
+
+            Debug.Log("I HIT HIM MEHEH");
+
+
+            if (health)
+            {
+
+                health.ChangeHeart();
+            }
         }
     }
+
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, .5f);
+    //      Debug.Log("I HIT HIM MEHEH");
+
+    //        if (health) health.ChangeHeart();
+    //    }
+    //}
 
 }
