@@ -10,12 +10,14 @@ public class HealthSystem : MonoBehaviour
     public Sprite[] heartUI = new Sprite[2];
     public Image imgSource;
     private int currentImg = 0;
+    private Sprite startingSprite;
 
     public GameObject deathScreen;
 
     void Awake()
     {
-        if (deathScreen) deathScreen.SetActive(false); 
+        if (deathScreen) deathScreen.SetActive(false);
+        startingSprite = imgSource ? imgSource.sprite : null;
     }
 
     public void OnCollisionEnter(Collision col)
@@ -52,5 +54,23 @@ public class HealthSystem : MonoBehaviour
             deathScreen.SetActive(true);
     }
 
+
+    public void GetHeart()
+    {
+        if (currentImg <= 0) return;   
+
+        currentImg--; 
+
+        if (currentImg == 0)
+        {
+            if (startingSprite) imgSource.sprite = startingSprite;
+        }
+        else
+        {
+            imgSource.sprite = heartUI[currentImg - 1];
+        }
+
+        Debug.Log("Got a new heart!");
+    }
 
 }
