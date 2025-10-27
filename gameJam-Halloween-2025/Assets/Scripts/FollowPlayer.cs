@@ -151,6 +151,8 @@ public class FollowPlayer : MonoBehaviour
     {
         m_currentWaypointIndex = (m_currentWaypointIndex + 1) % wayPoints.Length;
         nMA.SetDestination(wayPoints[m_currentWaypointIndex].position);
+
+        Debug.Log("Moving to waypoint: " + wayPoints[m_currentWaypointIndex].name);
     }
 
     void CaughtPlayer()

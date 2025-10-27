@@ -29,6 +29,7 @@ public class ZombieHandSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (player)
         {
             lastPosition = player.position;
@@ -68,7 +69,7 @@ public class ZombieHandSpawn : MonoBehaviour
                 currentHand.transform.position = spawnPos;   // enforce world pos once
 
                 var sr = currentHand.GetComponent<SpriteRenderer>();
-                if (sr) sr.sortingOrder = 100;
+                if (sr) sr.sortingOrder = 0;
 
                 AudioClip clip = zombieSounds[Random.Range(0, zombieSounds.Length)];
                 enemyAudioSource.PlayOneShot(clip);

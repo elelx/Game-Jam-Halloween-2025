@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded;
 
+    private Animator anim;
+
     public AudioSource gingerbread; 
 
     // Start is called before the first frame update
@@ -27,8 +29,8 @@ public class PlayerMovement : MonoBehaviour
     {
         currentSprite = GetComponent<SpriteRenderer>();
         tr = GetComponent<Transform>();
-
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -74,36 +76,53 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow))
         {
 
-            currentSprite.sprite = playerSprites[0];
+            anim.SetBool("backWalk", true);
             gingerbread.Play();
             WalkShake();
+        }
+        if (Input.GetKeyUp("w"))
+        {
+            anim.SetBool("backWalk", false);
+            currentSprite.sprite = playerSprites[0];
         }
 
         if (Input.GetKeyDown("a") || Input.GetKeyDown(KeyCode.LeftArrow))
         {
 
-            currentSprite.sprite = playerSprites[1];
+            anim.SetBool("leftWalk", true);
             gingerbread.Play();
             WalkShake();
-
+        }
+        if (Input.GetKeyUp("a"))
+        {
+            anim.SetBool("leftWalk", false);
+            currentSprite.sprite = playerSprites[1];
         }
 
         if (Input.GetKeyDown("s") || Input.GetKeyDown(KeyCode.DownArrow))
         {
 
-            currentSprite.sprite = playerSprites[2];
+            anim.SetBool("frontWalk", true);
             gingerbread.Play();
             WalkShake();
-
+        }
+        if (Input.GetKeyUp("s"))
+        {
+            anim.SetBool("frontWalk", false);
+            currentSprite.sprite = playerSprites[2];
         }
 
         if (Input.GetKeyDown("d") || Input.GetKeyDown(KeyCode.RightArrow))
         {
 
-            currentSprite.sprite = playerSprites[3];
+            anim.SetBool("rightWalk", true);
             gingerbread.Play();
             WalkShake();
-
+        }
+        if (Input.GetKeyUp("d"))
+        {
+            anim.SetBool("rightWalk", false);
+            currentSprite.sprite = playerSprites[3];
         }
     }
 
