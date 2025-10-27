@@ -3658,7 +3658,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2881949, y: -0, z: -0, w: 0.9575718}
-  m_LocalPosition: {x: 0, y: 1.9, z: -1.6}
+  m_LocalPosition: {x: 0, y: 2.525, z: -1.891}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9882,6 +9882,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crow_Hedge to Hedge (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6935820300379013398, guid: 4e5409d87fdfa446fb729786eb0144af,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13470,7 +13475,7 @@ PrefabInstance:
     - target: {fileID: 8637484110953519913, guid: 8b7d2a2217c9d4dbca892ae79c66be70,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8637484110953519913, guid: 8b7d2a2217c9d4dbca892ae79c66be70,
         type: 3}
@@ -17154,8 +17159,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.057859, y: 8.415455, z: 2.4447443}
-  m_Center: {x: -0.51649946, y: 0.21458435, z: 0.020832105}
+  m_Size: {x: 6.057859, y: 7.9889174, z: 2.4447443}
+  m_Center: {x: -0.5164996, y: 5.7449284, z: 0.020832079}
 --- !u!212 &1668016507
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19672,6 +19677,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CROWHedge (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 494053644155719791, guid: 6f2d1f253c64543cf93bfe3be5cad105,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1439430290177583659, guid: 6f2d1f253c64543cf93bfe3be5cad105,
         type: 3}
       propertyPath: health
@@ -20775,7 +20785,7 @@ Transform:
   m_GameObject: {fileID: 1949389333}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.1, y: -17.19, z: -37.36}
+  m_LocalPosition: {x: 7.1, y: -18.13, z: -37.36}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20881,8 +20891,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.51547503, y: 0.875002, z: 0.25739047}
-  m_Center: {x: 0.0028576783, y: 0.026780868, z: -0.014347364}
+  m_Size: {x: 0.51547503, y: 1.124608, z: 0.25739047}
+  m_Center: {x: 0.002857685, y: -0.09802185, z: -0.014347365}
 --- !u!54 &1949389338
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29135,6 +29145,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CROWHedge
+      objectReference: {fileID: 0}
+    - target: {fileID: 494053644155719791, guid: 6f2d1f253c64543cf93bfe3be5cad105,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1439430290177583659, guid: 6f2d1f253c64543cf93bfe3be5cad105,
         type: 3}
