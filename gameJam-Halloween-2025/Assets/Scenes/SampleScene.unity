@@ -3583,7 +3583,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585549}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -13450,7 +13450,7 @@ PrefabInstance:
     - target: {fileID: 7458216504477881490, guid: 8b7d2a2217c9d4dbca892ae79c66be70,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8637484110953519913, guid: 8b7d2a2217c9d4dbca892ae79c66be70,
         type: 3}
@@ -14084,7 +14084,7 @@ GameObject:
   - component: {fileID: 1338923634}
   - component: {fileID: 1338923633}
   - component: {fileID: 1338923632}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Virtual Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16393,7 +16393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1562100527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TEST_Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -16548,7 +16548,7 @@ GameObject:
   - component: {fileID: 1615025383}
   - component: {fileID: 1615025382}
   - component: {fileID: 1615025381}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18253,8 +18253,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.370184, y: 8.98785, z: 4.74331}
-  m_Center: {x: -0.4421968, y: -0.35418606, z: 0.023740046}
+  m_Size: {x: 6.3701844, y: 6.0262055, z: 4.74331}
+  m_Center: {x: -0.44219685, y: 6.9339433, z: 0.023740016}
 --- !u!212 &1709659012
 SpriteRenderer:
   m_ObjectHideFlags: 0

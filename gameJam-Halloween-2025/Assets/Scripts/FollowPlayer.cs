@@ -50,19 +50,19 @@ public class FollowPlayer : MonoBehaviour
 
     }
     // Update is called once per frame
-        void Update()
-    {
-        EnvironmentView();
+    //     void Update()
+    // {
+    //     EnvironmentView();
 
-        if (!m_isPatrol)
-        {
-            Chasing();
-        }
-        else
-        {
-            Patroling();
-        }
-    }
+    //     if (!m_isPatrol)
+    //     {
+    //         Chasing();
+    //     }
+    //     else
+    //     {
+    //         Patroling();
+    //     }
+    // }
 
     private void Chasing()
     {
