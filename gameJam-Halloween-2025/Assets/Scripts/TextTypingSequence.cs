@@ -10,6 +10,8 @@ public class TextTypingSequence : MonoBehaviour
     public string[] lines;
     public float textSpeed; //Text Speed
 
+    public GameObject[] bgImages;
+
     private int index;
     public GameObject NextSceneButton;
     public int NextSceneNum;
@@ -30,6 +32,7 @@ public class TextTypingSequence : MonoBehaviour
             if (textComponent.text == lines[index])
             {
                 NextLine();
+                NextImage();
             }
             else
             {
@@ -67,6 +70,14 @@ public class TextTypingSequence : MonoBehaviour
             NextSceneButton.SetActive(true);
             gameObject.SetActive(false);
         }
+    }
+
+    void NextImage()
+    {
+        if (index < bgImages.Length - 1)
+        {
+            bgImages[index].SetActive(true);
+        }   
     }
 
     public void NextScene()
