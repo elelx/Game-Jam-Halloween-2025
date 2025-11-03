@@ -24,5 +24,15 @@ public class ClearMaze : MonoBehaviour
             Destroy(chaser);
         }
         Debug.Log("enemies from maze 1 wiped");
+
+        if (other.gameObject.CompareTag("2to3trgiier"))
+        {
+            GameObject[] aaaa = GameObject.FindGameObjectsWithTag("Maze02Enemy");
+            foreach (GameObject aaa in aaaa)
+            {
+                Destroy(aaa);
+            }
+            Debug.Log("enemies from maze 2 wiped");
+        }
     }
 }
